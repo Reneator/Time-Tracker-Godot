@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+
+[node name="Control" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+state_label_path = NodePath("State/Label2")
+current_duration_label_path = NodePath("Current_Block/Current_Duration/Label2")
+current_block_start_time_label_path = NodePath("Current_Block/Current_Block/Label2")
+current_day_duration_label_path = NodePath("Daily_Duration/Label2")
+
+[node name="State" type="HBoxContainer" parent="."]
+margin_right = 120.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="State"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "State: "
+
+[node name="Label2" type="Label" parent="State"]
+margin_left = 44.0
+margin_right = 95.0
+margin_bottom = 14.0
+text = "Running"
+
+[node name="Duration_List" type="VBoxContainer" parent="."]
+visible = false
+margin_top = 18.0
+margin_right = 120.0
+margin_bottom = 18.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Current_Block" type="VBoxContainer" parent="."]
+margin_top = 18.0
+margin_right = 120.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="Current_Block"]
+margin_right = 120.0
+margin_bottom = 14.0
+text = "Current Block:"
+
+[node name="Current_Duration" type="HBoxContainer" parent="Current_Block"]
+margin_top = 18.0
+margin_right = 120.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Current_Block/Current_Duration"]
+margin_right = 55.0
+margin_bottom = 14.0
+text = "Duration"
+
+[node name="Label2" type="Label" parent="Current_Block/Current_Duration"]
+margin_left = 59.0
+margin_right = 59.0
+margin_bottom = 14.0
+
+[node name="Current_Block" type="HBoxContainer" parent="Current_Block"]
+margin_top = 36.0
+margin_right = 120.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Current_Block/Current_Block"]
+margin_right = 69.0
+margin_bottom = 14.0
+text = "Start Time:"
+
+[node name="Label2" type="Label" parent="Current_Block/Current_Block"]
+margin_left = 73.0
+margin_right = 73.0
+margin_bottom = 14.0
+
+[node name="Daily_Duration" type="HBoxContainer" parent="."]
+margin_top = 72.0
+margin_right = 120.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="Daily_Duration"]
+margin_right = 41.0
+margin_bottom = 14.0
+text = "Today:"
+
+[node name="Label2" type="Label" parent="Daily_Duration"]
+margin_left = 45.0
+margin_right = 45.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 90.0
+margin_right = 120.0
+margin_bottom = 110.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start_Button" type="Button" parent="HBoxContainer"]
+margin_right = 58.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stop_Button" type="Button" parent="HBoxContainer"]
+margin_left = 62.0
+margin_right = 120.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Stop"
+[connection signal="pressed" from="HBoxContainer/Start_Button" to="." method="_on_Start_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Stop_Button" to="." method="_on_Stop_Button_pressed"]
