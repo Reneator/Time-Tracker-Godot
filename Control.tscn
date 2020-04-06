@@ -17,9 +17,33 @@ current_duration_label_path = NodePath("Current_Block/Current_Duration/Label2")
 current_block_start_time_label_path = NodePath("Current_Block/Current_Block/Label2")
 current_day_duration_label_path = NodePath("Daily_Duration/Label2")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 137.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start_Button" type="Button" parent="HBoxContainer"]
+margin_right = 66.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stop_Button" type="Button" parent="HBoxContainer"]
+margin_left = 70.0
+margin_right = 137.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Stop"
+
 [node name="State" type="HBoxContainer" parent="."]
-margin_right = 125.0
-margin_bottom = 14.0
+margin_top = 24.0
+margin_right = 137.0
+margin_bottom = 38.0
 
 [node name="Label" type="Label" parent="State"]
 margin_right = 40.0
@@ -42,18 +66,18 @@ __meta__ = {
 }
 
 [node name="Current_Block" type="VBoxContainer" parent="."]
-margin_top = 18.0
-margin_right = 125.0
-margin_bottom = 68.0
+margin_top = 42.0
+margin_right = 137.0
+margin_bottom = 92.0
 
 [node name="Label" type="Label" parent="Current_Block"]
-margin_right = 125.0
+margin_right = 137.0
 margin_bottom = 14.0
 text = "Current Block:"
 
 [node name="Current_Duration" type="HBoxContainer" parent="Current_Block"]
 margin_top = 18.0
-margin_right = 125.0
+margin_right = 137.0
 margin_bottom = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -71,7 +95,7 @@ margin_bottom = 14.0
 
 [node name="Current_Block" type="HBoxContainer" parent="Current_Block"]
 margin_top = 36.0
-margin_right = 125.0
+margin_right = 137.0
 margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -88,9 +112,9 @@ margin_right = 73.0
 margin_bottom = 14.0
 
 [node name="Daily_Duration" type="HBoxContainer" parent="."]
-margin_top = 72.0
-margin_right = 125.0
-margin_bottom = 86.0
+margin_top = 96.0
+margin_right = 137.0
+margin_bottom = 110.0
 
 [node name="Label" type="Label" parent="Daily_Duration"]
 margin_right = 41.0
@@ -102,28 +126,12 @@ margin_left = 45.0
 margin_right = 45.0
 margin_bottom = 14.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_top = 90.0
-margin_right = 125.0
-margin_bottom = 110.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Start_Button" type="Button" parent="HBoxContainer"]
-margin_right = 60.0
-margin_bottom = 20.0
+[node name="Reset_Button" type="Button" parent="."]
+margin_top = 114.0
+margin_right = 137.0
+margin_bottom = 134.0
 size_flags_horizontal = 3
-text = "Start"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Stop_Button" type="Button" parent="HBoxContainer"]
-margin_left = 64.0
-margin_right = 125.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-text = "Stop"
+text = "Reset"
 [connection signal="pressed" from="HBoxContainer/Start_Button" to="." method="_on_Start_Button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Stop_Button" to="." method="_on_Stop_Button_pressed"]
+[connection signal="pressed" from="Reset_Button" to="." method="_on_Reset_Button_pressed"]

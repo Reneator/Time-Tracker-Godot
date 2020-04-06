@@ -63,14 +63,17 @@ func get_date_string(date_time):
 		return ""
 	return "%d:%d" % [date_time.get("hour"), date_time.get("minute")]
 
-
 func _on_Start_Button_pressed():
 	running = true
 	current_block_duration = 0	
 	if not current_block_start_time:
 		current_block_start_time = OS.get_datetime()
-	
-
 
 func _on_Stop_Button_pressed():
+	running = false
+
+func _on_Reset_Button_pressed():
+	current_block_duration = 0
+	current_block_start_time = null
+	current_day_duration = 0
 	running = false
