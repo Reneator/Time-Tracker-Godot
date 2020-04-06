@@ -18,7 +18,7 @@ _global_script_class_icons={
 config/name="Time Tracker"
 run/main_scene="res://Control.tscn"
 run/low_processor_mode=true
-config/icon="res://icon.png"
+config/icon="res://clock_icon-icons.com_72357.png"
 
 [display]
 
