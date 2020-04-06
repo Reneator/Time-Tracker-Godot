@@ -25,8 +25,8 @@ onready var current_day_duration_label = get_node(current_day_duration_label_pat
 func _process(delta):
 	if not running:
 		return
-	current_day_duration += delta * 1000
-	current_block_duration += delta * 10
+	current_day_duration += delta 
+	current_block_duration += delta
 	
 	set_labels()
 

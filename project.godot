@@ -22,8 +22,8 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=120
-window/size/height=120
+window/size/width=250
+window/size/height=250
 window/size/resizable=false
 
 [rendering]
