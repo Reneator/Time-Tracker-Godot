@@ -23,10 +23,9 @@ onready var current_day_duration_label = get_node(current_day_duration_label_pat
 
 
 func _process(delta):
-	if not running:
-		return
-	current_day_duration += delta 
-	current_block_duration += delta
+	if running:
+		current_day_duration += delta 
+		current_block_duration += delta
 	
 	set_labels()
 
@@ -44,6 +43,8 @@ func get_state():
 		return "Paused"
 
 func get_duration_as_string(duration): # format of 1h 30m 20s
+	if not duration:
+		return ""
 	var seconds = int(duration)
 	var minutes = int(floor(duration / 60))
 	seconds = seconds % 60
@@ -58,11 +59,14 @@ func get_duration_as_string(duration): # format of 1h 30m 20s
 	return text
 
 func get_date_string(date_time):
+	if not date_time:
+		return ""
 	return "%d:%d" % [date_time.get("hour"), date_time.get("minute")]
 
 
 func _on_Start_Button_pressed():
 	running = true
+	current_block_duration = 0	
 	if not current_block_start_time:
 		current_block_start_time = OS.get_datetime()
 	
@@ -70,4 +74,3 @@ func _on_Start_Button_pressed():
 
 func _on_Stop_Button_pressed():
 	running = false
-	current_block_duration = 0
