@@ -8,6 +8,7 @@ var current_block_duration = 0.0
 var current_block_start_time
 
 var current_day_duration = 0.0
+var current_day_start_time
 
 export (NodePath) var state_label_path
 onready var state_label = get_node(state_label_path)
@@ -17,6 +18,9 @@ onready var current_duration_label = get_node(current_duration_label_path)
 
 export (NodePath) var current_block_start_time_label_path
 onready var current_block_start_time_label = get_node(current_block_start_time_label_path)
+
+export (NodePath) var current_day_start_time_label_path
+onready var current_day_start_time_label = get_node(current_day_start_time_label_path)
 
 export (NodePath) var current_day_duration_label_path
 onready var current_day_duration_label = get_node(current_day_duration_label_path)
@@ -34,6 +38,7 @@ func set_labels():
 	current_duration_label.text = get_duration_as_string(current_block_duration)
 	current_block_start_time_label.text = get_date_string(current_block_start_time)
 	current_day_duration_label.text = get_duration_as_string(current_day_duration)
+	current_day_start_time_label.text = get_date_string(current_day_start_time)
 	
 
 func get_state():
@@ -65,9 +70,10 @@ func get_date_string(date_time):
 
 func _on_Start_Button_pressed():
 	running = true
-	current_block_duration = 0	
-	if not current_block_start_time:
-		current_block_start_time = OS.get_datetime()
+	current_block_duration = 0
+	current_block_start_time = OS.get_datetime()
+	if not current_day_start_time:
+		current_day_start_time = OS.get_datetime()
 
 func _on_Stop_Button_pressed():
 	running = false

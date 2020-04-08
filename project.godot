@@ -23,7 +23,7 @@ config/icon="res://clock_icon-icons.com_72357.png"
 [display]
 
 window/size/width=250
-window/size/height=250
+window/size/height=300
 window/size/resizable=false
 
 [rendering]
